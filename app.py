@@ -10,7 +10,7 @@ db = pymysql.connect(host='localhost',
                         port=3306, 
                         user='root', 
                         passwd='1234', 
-                        db='myflaskapp')
+                        db='team1')
 #init mysql 
 # mysql = MySQL(app)
 # cur  = mysql.connection.cursor()
@@ -18,6 +18,11 @@ db = pymysql.connect(host='localhost',
 # users  = cur.fetchall()
 # print(users)
 # print(result)
+
+# @app.route('/graph')
+# def graph():
+#     list_data=[0, 10, 5, 2, 20, 30, 45]
+#     return render_template('graph.html',data=list_data)
 
 @app.route('/')
 def index():
@@ -48,7 +53,7 @@ def register():
                 INSERT INTO users (name , email , username , password) 
                 VALUES (%s ,%s, %s, %s )
              '''
-            cursor.execute(sql , (name,email,username,password ))
+            cursor.execute(sql , (name, email , username , password))
             db.commit()
             
             # cursor = db.cursor()
